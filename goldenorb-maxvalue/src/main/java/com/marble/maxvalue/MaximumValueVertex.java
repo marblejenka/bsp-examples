@@ -8,8 +8,7 @@ import org.goldenorb.Edge;
 import org.goldenorb.Vertex;
 import org.goldenorb.types.message.IntMessage;
 
-public class MaximumValueVertex extends
-		Vertex<IntWritable, IntWritable, IntMessage> {
+public class MaximumValueVertex extends Vertex<IntWritable, IntWritable, IntMessage> {
 
 	int maxValue = 0;
 
@@ -17,8 +16,7 @@ public class MaximumValueVertex extends
 		super(IntWritable.class, IntWritable.class, IntMessage.class);
 	}
 
-	public MaximumValueVertex(String _vertexID, IntWritable _value,
-			List<Edge<IntWritable>> _edges) {
+	public MaximumValueVertex(String _vertexID, IntWritable _value, List<Edge<IntWritable>> _edges) {
 		super(_vertexID, _value, _edges);
 	}
 
@@ -41,8 +39,7 @@ public class MaximumValueVertex extends
 		if (_maxValue > maxValue) {
 			maxValue = _maxValue;
 			for (Edge<IntWritable> e : getEdges()) {
-				sendMessage(new IntMessage(e.getDestinationVertex(),
-						new IntWritable(maxValue)));
+				sendMessage(new IntMessage(e.getDestinationVertex(), new IntWritable(maxValue)));
 			}
 		}
 
